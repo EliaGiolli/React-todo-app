@@ -20,7 +20,7 @@ Per eseguire l'applicazione in locale, segui questi passaggi:
 
 2. **Naviga nella cartella del progetto**:
    ```bash
-   cd hotel-pomelia
+   cd taskflow
    ```
 
 3. **Installa le dipendenze**:
