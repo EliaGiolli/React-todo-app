@@ -1,15 +1,19 @@
-import React from 'react'
-import { useTheme } from '../contexts/ThemeContext'
 
+// eslint-disable-next-line react/prop-types
+function Card({ children, variant = 'default' }) {
+  const baseStyles = "cards flex flex-col"
+  
+  const variantStyles = {
+    default: "",
+    project: " max-w-2xl mx-auto",
+    profile: "max-w-3xl",
+  }
 
-function Card({children}) {
-    const { themeMode } = useTheme()
-
-    return (
-        <div className={`w-full max-w-3xl px-4 py-6 rounded-lg shadow-md ${themeMode === 'light' ? 'bg-white text-black' : 'bg-gray-800 text-white'}`}>
-            {children}
-        </div>
-    )
+  return (
+    <div className={`${baseStyles} ${variantStyles[variant]}`}>
+      {children}
+    </div>
+  )
 }
 
 export default Card

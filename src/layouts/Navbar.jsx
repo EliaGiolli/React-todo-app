@@ -1,29 +1,65 @@
-//COMPONENTS
-import React from 'react';
-import Button from '../components/Button'
+import { useState } from 'react'
 
-//REACT ICONS
-import { CiLight } from "react-icons/ci";
-import { LuSunMoon } from "react-icons/lu";
+//External libraries
+import  { Link } from 'react-scroll'
 
-//THEME CHANGE
-import { useTheme } from '../contexts/ThemeContext';
+//React icons
+import { FaBars} from 'react-icons/fa'
+
+
 
 function Navbar() {
-    const { themeMode, toggleTheme } = useTheme();
+ 
+   //DROPDWON MENU LOGIC 
+  const [isDropDown, setIsDropDown] = useState(false)
 
-    const handleThemeToggler = () =>{
-        console.log('tema cambiato?', themeMode)
-        toggleTheme();
-    };
+  const toggleDropdown = ()=>{
+    console.log("dropdown", !isDropDown)
+    setIsDropDown(!isDropDown)
 
+  }
 
   return (
-    <nav className={`flex justify-between items-center w-full mix-h-80 border-b-2 p-8 ${themeMode === 'light' ? 'bg-secondary text-primary border-b-white' : 'bg-gray-800 text-white border-b-indigo-500'}`}>
-        <h1 className="text-3xl sm:text-4xl text-tertiary">TaskFlow</h1>
-        <Button variantStyles="themeBtn" onClick={handleThemeToggler}>
-            {themeMode === 'light' ? <CiLight size={24}/> : <LuSunMoon size={24} />}
-        </Button>
+    <nav className='navbar'>
+        {/* Logo */}
+        <Link to="heroSection">
+            <img src="/img/logo.jpg" alt="Logo Giolli Design" className="w-12 h-11 object-cover rounded" />
+        </Link>
+        {/* Desktop Menu */}
+        <ul className='hidden sm:flex flex-1 justify-end items-center gap-4 p-6'>
+            <li className='li-style'>
+                <Link to='about'>Su di me</Link>
+            </li>
+            <li className='li-style'>
+                <Link to='projects'>Progetti</Link>
+            </li>
+            <li className='li-style'>
+                <Link to='contacts'>Contatti</Link>
+            </li>
+        </ul>
+        {/* Search and Mobile Menu */}
+        <div className='flex items-center gap-4'>
+            {/* Hamburger Menu */}
+            <button className='block md:hidden cursor-pointer' onClick={toggleDropdown}>
+                <FaBars className='text-3xl text-[--text-primary-color]'/>
+            </button>
+        </div>
+        {/* Mobile Dropdown */}
+        {isDropDown && (
+            <div className='dropdown'>
+                <ul>
+                    <li className='li-style'>
+                        <Link to="about">Su di me</Link>
+                    </li>
+                    <li className='li-style'>
+                        <Link to="projects">Progetti</Link>
+                    </li>
+                    <li className='li-style'>
+                        <Link to="contacts">Contatti</Link>
+                    </li>
+                </ul>
+            </div>
+        )}
     </nav>
   )
 }

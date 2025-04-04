@@ -1,5 +1,5 @@
 {
-  "name": "hotel-pomelia",
+  "name": "package.json",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.0",
+    "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/vite": "^4.0.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
     "react-icons": "^5.5.0",
-    "react-parallax": "^3.5.2",
-    "tailwindcss": "^4.1.0"
+    "react-router-dom": "^7.2.0",
+    "react-scroll": "^1.9.3",
+    "react-typed": "^2.0.12",
+    "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -24,7 +27,8 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.21.0",
-    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "vite": "^6.2.0"
