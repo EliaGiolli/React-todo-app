@@ -1,7 +1,7 @@
-# Hotel Pomelia
+# TaskFlow
 
 ## Descrizione
-Hotel Pomelia è un'applicazione React progettata per gestire una lista di task. Utilizza la Context API per la gestione dello stato e il localStorage per il salvataggio persistente dei dati. Questo progetto è un'ottima opportunità per praticare l'uso della Context API e del localStorage in un contesto reale.
+TaskFlow è un'applicazione React progettata per gestire una lista di task. Utilizza la Context API per la gestione dello stato e il localStorage per il salvataggio persistente dei dati. Questo progetto è un'ottima opportunità per praticare l'uso della Context API e del localStorage in un contesto reale.
 
 ## Tecnologie Usate
 - **React**: Libreria JavaScript per la creazione di interfacce utente.
