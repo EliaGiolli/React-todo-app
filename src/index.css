@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+
+
+@layer base{
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+@layer utilities{
+    /* Palette chiara */
+.bg-primary {
+    @apply bg-slate-300;
+  }
+  .bg-secondary {
+    @apply bg-white;
+  }
+  .bg-tertiary {
+    @apply bg-red-600;
+  }
+  .bg-tertiary:hover {
+    @apply bg-orange-500;
+  }
+  
+  .text-primary {
+    @apply text-black;
+  }
+  .text-secondary {
+    @apply text-white;
+  }
+  .text-tertiary{
+    @apply text-red-600;
+  }
+  .text-accent{
+    @apply text-orange-500
+  }
+  
+  /* Palette scura */
+  .dark .bg-primary {
+    @apply bg-slate-900;
+  }
+  .dark .bg-secondary {
+    @apply bg-gray-800;
+  }
+  .dark .bg-tertiary {
+    @apply bg-indigo-800;
+  }
+  .dark .bg-hover {
+    @apply bg-indigo-900;
+  }
+  .dark .text-primary {
+    @apply text-white;
+  }
+  .dark .text-secondary {
+    @apply text-black;
+  }
+  .dark .text-tertiary{
+    @apply text-blue-700;
+  }
+  .dark .bg-tertiary:hover{
+    @apply bg-lime-400 text-white;
+  }
+  .dark .accent{
+    @apply text-lime-400
+  }
+}
