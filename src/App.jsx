@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react"
+import React,{useState, useEffect, useReducer} from "react"
 import ParallaxSection from "./layouts/ParallaxSection"
 import Card from "./layouts/Card"
 import Button from './components/Button'
@@ -12,56 +12,38 @@ import { RxCross2 } from "react-icons/rx";
 
 //TEMA
 import { ThemeProvider } from "./contexts/ThemeContext"
+//REDUCERS
+import { addTask, removeTask,initTask } from "./reducers/taskActions"
+import {  taskReducer } from './reducers/taskReducer'
 
 function App() {
  
   //gestione dello stato
-  const [tasks, setTask]= useState([]);
+  const [tasks, dispatch]= useReducer(taskReducer,[]);
   const [inputValue, setInputValue] = useState("");
 
 
   const handleToDo = ()=>{
-    if (!inputValue.trim()) {
-      console.warn("il campo non può essere vuoto");
-      return;
-    }
-    const newTask = {
-      id:Date.now(),
-      todoName: inputValue,
-      isCompleted: false,
-    };
-    //popola l'array coi nuovi tasks
-    setTask((prevTasks)=>[...prevTasks,newTask]);
-    //ripulisce l'imput dopo aver aggiunto il task
+    if (!inputValue.trim()) return;
+    const newTask = { id:Date.now(), todoName: inputValue, isCompleted: false,};
+    dispatch(addTask(newTask));
     setInputValue("");
   };
 
   //rimuovere i todo
   function handleCancelTask(taskId){
-    //elimino i task completati filtrando l'array
-    const updatedTasks = tasks.filter(task => task.id !== taskId);
-    setTask(updatedTasks);
-    localStorage.setItem("tasks",JSON.stringify(updatedTasks));
+    dispatch(removeTask(taskId));
   }
 
   //AGGIUNGERE I TASK NEL LOCAL STORAGE AL PRIMO RENDER
   useEffect(()=>{
-    const savedTasks = localStorage.getItem('tasks');
-    if(savedTasks){
-      try{
-        setTask(JSON.parse(savedTasks));
-      }catch(error){
-        console.error("errore nell'aggiunta dei tasks al local storage", error.message);
-        localStorage.removeItem("tasks");
-      }
-    }
+    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    dispatch(initTask(savedTasks)) 
   },[]);
 
   //SALVARE I DATI NEL LOCAL STORAGE OGNI VOLTA CHE CAMBIANO
   useEffect(()=>{
-    if(tasks.length > 0){
     localStorage.setItem("tasks",JSON.stringify(tasks));
-    }
   },[tasks]);
 
 
