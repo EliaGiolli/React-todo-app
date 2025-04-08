@@ -46,8 +46,7 @@ export const taskReducer = (state, action) => {
 ```
 Action Creators
 Abbiamo anche creato alcune action creators per semplificare la gestione delle azioni:
-```
-javascript
+```javascript
 // taskActions.js
 
 export const addTask = (task) => ({
