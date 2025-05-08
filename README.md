@@ -1,81 +1,59 @@
-TaskFlow
-Descrizione
-TaskFlow è un'applicazione React progettata per gestire una lista di task. Utilizza la Context API per la gestione dello stato e il localStorage per il salvataggio persistente dei dati. Questo progetto è un'ottima opportunità per praticare l'uso della Context API e del localStorage in un contesto reale.
+# Taskflow
 
-Tecnologie Usate
-React: Libreria JavaScript per la creazione di interfacce utente.
-React Icons: Per l'uso di icone nell'interfaccia.
-Tailwind CSS: Framework CSS per la progettazione di interfacce reattive.
-Vite: Strumento di build per applicazioni moderne.
-React Hook Form: Per la gestione dei moduli in modo semplice e performante.
-Installazione
-Per eseguire l'applicazione in locale, segui questi passaggi:
+Taskflow is a task management application built with React. It allows users to create, manage, and organize their tasks efficiently.
 
-Clona il repository:
+## Technologies Used
 
-git clone https://github.com/tuo-username/taskflow.git
-Naviga nella cartella del progetto:
+- **React**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for styling.
+- **Vite**: A build tool that provides a fast development environment.
+- **React Hook Form**: A library for managing forms in React.
+- **React Icons**: A library for including icons in React applications.
+- **React Parallax**: A library for creating parallax scrolling effects.
+- **Jest**: A JavaScript testing framework.
+- **React Testing Library**: A library for testing React components.
+- **Local Storage**: For persisting tasks across sessions.
 
-cd taskflow
-Installa le dipendenze:
+## Getting Started
 
-npm install
-Avvia l'applicazione:
+To get started with the Taskflow project, follow these steps:
 
-npm run dev
-Apri il tuo browser e vai su http://localhost:3000 per vedere l'app in azione.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/taskflow.git
+   ```
 
-Miglioramenti Futuri
-Accessibilità (a11y): Aggiungere aria-label ai bottoni e agli input per migliorare l'accessibilità.
-Gestione degli errori: Implementare messaggi di errore visibili per il recupero o il salvataggio dei dati nel localStorage.
-Funzionalità di modifica del task: Permettere agli utenti di modificare i task esistenti.
-Contrassegnare i task come completati: Aggiungere la possibilità di contrassegnare i task come completati e visualizzarne lo stato.
-Notifiche/Alert: Implementare notifiche quando un task è aggiunto o rimosso.
-Animazioni e transizioni: Aggiungere transizioni fluide per l'aggiunta e la rimozione dei task.
-Filtraggio dei task: Aggiungere un filtro per visualizzare solo i task completati o incompleti.
-UI Responsiva: Ottimizzare ulteriormente l'app per dispositivi mobili.
-Progettazione del layout: Considerare l'inserimento di un footer e migliorare l'interfaccia per una maggiore simmetria.
-Contatti
-LinkedIn: inkedin.com/in/eliagiolli/
-Licenza
-Questo progetto è sotto licenza MIT. Vedi il file LICENSE per ulteriori dettagli.
+2. **Navigate into the project directory**:
+   ```bash
+   cd taskflow
+   ```
 
-About
-No description, website, or topics provided.
-Resources
- Readme
- Activity
-Stars
- 0 stars
-Watchers
- 1 watching
-Forks
- 0 forks
-Releases
-No releases published
-Create a new release
-Packages
-No packages published
-Publish your first package
-Languages
-JavaScript
-91.1%
- 
-CSS
-6.7%
- 
-HTML
-2.2%
-Suggested workflows
-Based on your tech stack
-Node.js logo
-Node.js
-Build and test a Node.js project with npm.
-Deno logo
-Deno
-Test your Deno project
-Webpack logo
-Webpack
-Build a NodeJS project with npm and webpack.
-More workflows
-Footer
+3. **Install the dependencies**:
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser** and go to `http://localhost:3000` to see the application in action.
+
+## Running Tests
+
+To run the tests for this project, use the following command:
+
+```bash
+npm test
+```
+
+This will execute the test suite using Jest and React Testing Library to ensure that all components are functioning as expected.
+
+## Contributing
+
+If you would like to contribute to this project, please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
