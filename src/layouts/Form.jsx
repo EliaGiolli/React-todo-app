@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react';
 import Input from '../components/Input'
 import Button from '../components/Button'
 
@@ -10,20 +10,19 @@ import { useTheme } from '../contexts/ThemeContext';
 
 //EXTERNAL LIBRARIES
 import { useForm } from 'react-hook-form';
-const LOCAL_STORAGE_KEY = "myFormData";
+//internal imports
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useTimedMessage } from '../hooks/useTimedMessage';
+
 
 function Form() {
-  //cambio tema
+  //theme change
   const {themeMode} = useTheme();
 
-  //stato del messaggio 
-  const [showMessage, setShowMessage] = useState(false);
-  const handleShowMessage = () => {
-    setShowMessage(true);
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 3000);
-  };
+  //trigger of the message
+  const [visible,triggerMessage] = useTimedMessage(3000);
+
+  //react hook form logic
   const {
     register,
     handleSubmit,
@@ -36,28 +35,13 @@ function Form() {
       email:"",
     },
   });
-  //LOCAL STORAGE 
-  useEffect(()=>{
-    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if(savedData){
-      try{
-        reset(JSON.parse(savedData));
-      }catch(err){
-        console.error("errore nel parsing dei dati sul local storage");
-      }
-    }
-  },[reset]);
-  
-  const watchChangedFields = watch();
+  useLocalStorage({watch, reset, key:"my custom key"});
 
-  useEffect(()=>{
-    localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(watchChangedFields));
-  },[watchChangedFields]);
 
-  
   const onSubmit = (data)=>{
     console.log("dati inviati",data);
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    localStorage.removeItem(key);
+    triggerMessage();
   }
 
   return (
@@ -107,12 +91,12 @@ function Form() {
           <Button 
             type="submit"
             disabled={isSubmitting}
-            onClick={handleShowMessage}
+            onClick={triggerMessage}
             >
             Iscriviti alla newsletter!
           </Button>
         </div>
-        {showMessage && <p className='bg-red-100 text-red-500 text-xl p-2'>Newsletter inviata!</p>}
+        {visible && <p className='bg-red-100 text-red-500 text-xl p-2'>Newsletter inviata!</p>}
       </form>
     
      

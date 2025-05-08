@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useReducer} from "react"
+import React from "react"
 import ParallaxSection from "./layouts/ParallaxSection"
 import Card from "./layouts/Card"
 import Button from './components/Button'
@@ -13,38 +13,17 @@ import { RxCross2 } from "react-icons/rx";
 //TEMA
 import { ThemeProvider } from "./contexts/ThemeContext"
 //REDUCERS
-import { addTask, removeTask,initTask } from "./reducers/taskActions"
-import {  taskReducer } from './reducers/taskReducer'
+import { useTodoReducer } from "./hooks/useTodoReducer"
 
 function App() {
  
-  //gestione dello stato
-  const [tasks, dispatch]= useReducer(taskReducer,[]);
-  const [inputValue, setInputValue] = useState("");
-
-
-  const handleToDo = ()=>{
-    if (!inputValue.trim()) return;
-    const newTask = { id:Date.now(), todoName: inputValue, isCompleted: false,};
-    dispatch(addTask(newTask));
-    setInputValue("");
-  };
-
-  //rimuovere i todo
-  function handleCancelTask(taskId){
-    dispatch(removeTask(taskId));
-  }
-
-  //AGGIUNGERE I TASK NEL LOCAL STORAGE AL PRIMO RENDER
-  useEffect(()=>{
-    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    dispatch(initTask(savedTasks)) 
-  },[]);
-
-  //SALVARE I DATI NEL LOCAL STORAGE OGNI VOLTA CHE CAMBIANO
-  useEffect(()=>{
-    localStorage.setItem("tasks",JSON.stringify(tasks));
-  },[tasks]);
+  const {
+    tasks,
+    inputValue,
+    setInputValue,
+    handleToDo,
+    handleCancelTask,
+  } = useTodoReducer();
 
 
   return (
