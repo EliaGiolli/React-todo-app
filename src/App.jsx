@@ -1,6 +1,6 @@
 import React from "react"
 import ParallaxSection from "./layouts/ParallaxSection"
-import Card from "./layouts/Card"
+import Card from "./components/Card"
 import Button from './components/Button'
 import Input from './components/Input'
 import SecondParallax from "./layouts/SecondParallax"

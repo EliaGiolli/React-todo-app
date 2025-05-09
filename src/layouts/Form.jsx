@@ -13,9 +13,11 @@ import { useForm } from 'react-hook-form';
 //internal imports
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useTimedMessage } from '../hooks/useTimedMessage';
-
+import { useFocus } from '../hooks/useFocus';
 
 function Form() {
+  //Ref
+  const [inputRef, setFocus] = useFocus();
   //theme change
   const {themeMode} = useTheme();
 
@@ -58,6 +60,7 @@ function Form() {
         <div className='flex flex-col sm:flex-row justify-around items-center gap-4 p-4 my-4'>        
             <label htmlFor="name">Inserisci il tuo nome</label>
             <Input 
+              ref={inputRef}
               type="text"
               {...register("nome",
                 {required:"il campo è obbligatorio",
@@ -91,7 +94,10 @@ function Form() {
           <Button 
             type="submit"
             disabled={isSubmitting}
-            onClick={triggerMessage}
+            onClick={()=>{
+              triggerMessage();
+              setFocus();
+            }}
             >
             Iscriviti alla newsletter!
           </Button>
