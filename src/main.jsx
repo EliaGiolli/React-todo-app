@@ -1,12 +1,17 @@
 /* eslint-disable no-unused-vars */
+import React from 'react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import React from 'react'
+
 import './index.css'
-import App from './App.jsx'
+
+//ROUTER
+import { router } from './lib/router'
+import { RouterProvider } from 'react-router'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
