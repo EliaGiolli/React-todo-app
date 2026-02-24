@@ -53,7 +53,7 @@ function Form() {
         onSubmit={handleSubmit(onSubmit)} 
         className={`w-full max-w-3xl h-fit rounded-lg shadow-lg p-5 ${themeMode === 'light' ? 'bg-white text-black' : 'bg-gray-700 text-white'}`}
       >
-        <div className={`flex justify-center items-center w-full ${themeMode === 'light' ? 'bg-primary' : 'bg-gray-700'} text-center rounded-lg`}>
+        <div className={`flex justify-center items-center w-full ${themeMode === 'light' ? 'bg-zinc-200' : 'bg-gray-700'} text-center rounded-lg`}>
           <MdSubscriptions size={24} className='text-tertiary'/>
           <h2 className='text-primary text-2xl font-bold sm:text-3xl my-3 ml-5'>Iscriviti alla newsletter!</h2>
         </div>
