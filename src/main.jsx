@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 
 //ROUTER
-import { router } from './lib/router'
+import { router } from './router/router'
 import { RouterProvider } from 'react-router'
 
 
