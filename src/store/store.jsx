@@ -8,10 +8,8 @@ export const taskStore = create(
       tasks: [],
       inputValue: '',
 
-      // aggiorna l'input della nuova task
       setInputValue: (value) => set({ inputValue: value }),
 
-      // crea una nuova task a partire dall'input
       createTask: () => {
         const trimmed = get().inputValue.trim();
         if (!trimmed) return;
@@ -28,13 +26,11 @@ export const taskStore = create(
         }));
       },
 
-      // rimuove una task per id
       removeTask: (id) =>
         set((state) => ({
           tasks: state.tasks.filter((task) => task.id !== id),
         })),
 
-      // toggle completata/non completata (pronto se ti servirà)
       toggleTask: (id) =>
         set((state) => ({
           tasks: state.tasks.map((task) =>
@@ -43,8 +39,8 @@ export const taskStore = create(
         })),
     }),
     {
-      name: 'tasks', // chiave usata in localStorage
-      partialize: (state) => ({ tasks: state.tasks }), // cosa salvare
+      name: 'tasks',
+      partialize: (state) => ({ tasks: state.tasks }),
     }
   )
 );

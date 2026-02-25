@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router';
+// COMPONENTS
 import ParallaxSection from "../layouts/ParallaxSection";
 import SecondParallax from "../layouts/SecondParallax";
 import Form from "../layouts/Form";
@@ -14,11 +15,7 @@ function HomePage() {
 
   return (
     <main
-      className={`w-full min-h-screen transition-colors duration-300 ${
-        themeMode === "light"
-          ? "bg-primary text-zinc-900"
-          : "bg-zinc-900 text-zinc-50"
-      }`}
+      className="w-full min-h-screen"
     >
       <ParallaxSection />
 
