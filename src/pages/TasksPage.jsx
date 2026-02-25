@@ -1,14 +1,20 @@
 import React from 'react';
 import TasksForm from '../layouts/TasksForm';
-import { ThemeProvider } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 function TasksPage() {
+  const { themeMode } = useTheme();
+
   return (
-    <ThemeProvider>
-      <main className='mt-10'>
-        <TasksForm />
-      </main>
-    </ThemeProvider>
+    <main
+      className={`mt-10 min-h-screen transition-colors duration-300 ${
+        themeMode === 'light'
+          ? 'bg-zinc-50 text-zinc-900'
+          : 'bg-zinc-900 text-zinc-50'
+      }`}
+    >
+      <TasksForm />
+    </main>
   )
 }
 

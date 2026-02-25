@@ -20,13 +20,20 @@ function MainHeader() {
 
   return (
     <header 
-      role='banner'
       className={`flex justify-between items-center w-full mix-h-80 border-b-2 p-8 
       ${themeMode === 'light' ? 'bg-secondary text-primary border-b-white' : 'bg-gray-800 text-white border-b-indigo-500'}`}
       >
         <h1 className="text-3xl sm:text-4xl text-tertiary" id="main-title">TaskFlow</h1>
         <Navbar />
-        <Button variantStyles="themeBtn" onClick={handleThemeToggler}>
+        <Button 
+          variantStyles="themeBtn" 
+          onClick={handleThemeToggler}
+          aria-label={
+            themeMode === 'light'
+              ? 'Attiva modalità scura'
+              : 'Attiva modalità chiara'
+          }
+          >
             {themeMode === 'light' ? <CiLight size={24}/> : <LuSunMoon size={24} />}
         </Button>
     </header>
