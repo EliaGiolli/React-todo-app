@@ -1,5 +1,5 @@
 import React from "react"
-import Navbar from "./layouts/Navbar"
+import MainHeader from "./layouts/MainHeader"
 //TEMA
 import { ThemeProvider } from "./contexts/ThemeContext"
 //Routes
@@ -9,8 +9,8 @@ function RootLayout() {
  
   return (
     <ThemeProvider>
-        <Navbar />
-        <main className="bg-primary w-full">
+        <MainHeader />
+        <main className="bg-zinc-50 w-full">
           <Outlet />
         </main>
     </ThemeProvider>

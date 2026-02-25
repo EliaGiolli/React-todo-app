@@ -10,7 +10,7 @@ function Card({ children }) {
       whileHover={{ scale: 1.03 }}
       aria-label="card che mostra i task"
       className={`flex flex-col items-center justify-center w-full max-w-3xl px-4 py-6 rounded-lg shadow-md ${
-        themeMode === 'light' ? 'bg-white text-black' : 'bg-gray-800 text-white'
+        themeMode === 'light' ? 'bg-white text-black' : 'bg-secondary-700 text-white'
       }`}
     >
       {children}

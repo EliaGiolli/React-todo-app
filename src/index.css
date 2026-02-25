@@ -18,13 +18,16 @@
 @layer utilities{
     /* Palette chiara */
 .bg-primary {
-    @apply bg-slate-300;
+    @apply bg-black;
   }
   .bg-secondary {
     @apply bg-white;
   }
   .bg-tertiary {
     @apply bg-red-600;
+  }
+  .bg-section{
+    @apply bg-zinc-50;
   }
   .bg-tertiary:hover {
     @apply bg-orange-500;
@@ -38,6 +41,9 @@
   }
   .text-tertiary{
     @apply text-red-600;
+  }
+  .text-section {
+    @apply text-zinc-500;
   }
   .text-accent{
     @apply text-orange-500
@@ -55,6 +61,9 @@
   }
   .dark .bg-hover {
     @apply bg-indigo-900;
+  }
+  .dark .bg-section{
+    @apply bg-gray-500;
   }
   .dark .text-primary {
     @apply text-white;

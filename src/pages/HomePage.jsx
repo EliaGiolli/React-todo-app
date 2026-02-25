@@ -15,7 +15,7 @@ function HomePage() {
     <ThemeProvider>
       <main className="bg-primary w-full">
         <ParallaxSection />
-        <section className="flex flex-col justify-around items-center text-center w-full h-screen bg-zinc-50 p-4">
+        <section className="flex flex-col justify-around items-center text-center w-full h-screen bg-section p-4">
           <TaskList  />
           <div className="flex flex-col gap-y-4">
             <p className="text-zinc-500">Con TaskFlow puoi consultare i tuoi task quando vuoi!</p>

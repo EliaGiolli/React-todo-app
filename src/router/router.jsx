@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 
 import RootLayout from "../RootLayout";
 import HomePage from "../pages/HomePage";
+import TasksPage from '../pages/TasksPage';
 
 
 export const router = createBrowserRouter([
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
             {
                 index:true,
                 element: <HomePage />
+            },
+            {
+                path: '/tasks',
+                element: <TasksPage />
             }
         ]
     }
